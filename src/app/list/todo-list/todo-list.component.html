@@ -1,0 +1,16 @@
+<div >
+    <div [ngStyle]="styleContainerInput()">
+        <label for="task">Escribe una tarea</label>
+       <div>
+        <input type="text" name="task" id="task" [(ngModel)]="task">
+        <button type="button" (click)="addTask()">Agregar</button>
+       </div>
+    </div>
+    <ul>
+        @for (t of listTask; track $index) {
+            <li [ngStyle]="styleForLi()">
+                {{$index+1}}  -  {{t}}<button [ngStyle]="styleBtn()" (click)="deleteTask($index)">❌</button>
+            </li>
+        }
+    </ul>
+</div>
